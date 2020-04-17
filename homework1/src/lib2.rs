@@ -92,10 +92,10 @@ fn print_contents_of_file(path: &str) -> String {
 #[test]
 fn print_contents_of_file_tests() {
     use std::fs::read_to_string;
-    let s = read_to_string("/home/tau/Code/rust/lec1/hello.rs").expect("ignoring error: ");
+    let s = read_to_string("./src/lib.rs").expect("ignoring error: ");
     assert_eq!(
         s,
-        print_contents_of_file("/home/tau/Code/rust/lec1/hello.rs")
+        print_contents_of_file("./src/lib.rs")
     );
 }
 

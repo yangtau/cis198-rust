@@ -68,13 +68,14 @@ fn new_ref_str_tests() -> () {
 // Problem 6.
 // Now we know how to implement this type of function. Implement it and write a test
 // pick_longest_tests2() which passes all tests.
-fn pick_longest2(s1: &'static str, s2: &'static str) -> &'static str {
+fn pick_longest2<'a>(s1: &'a str, s2: &'a str) -> &'a str {
     if s1.len() > s2.len() {
         s1
     } else {
         s2
     }
 }
+
 #[test]
 fn pick_longest_tests2() -> () {
     let s1: &str = "hello world";
@@ -87,11 +88,11 @@ fn pick_longest_tests2() -> () {
 // and passes the test.
 // This function compares it's second argument againsts all elements in it's first
 // argument, returning those that are less than (<).
-fn find_lesser_values(v: &Vec<&'static str>, s: &str) -> Vec<&'static str> {
+fn find_lesser_values<'a>(v: &Vec<&'a str>, s: &str) -> Vec<&'a str> {
     v.iter()
         .filter(|t| **t < s)
         .map(|x| *x)
-        .collect::<Vec<&'static str>>()
+        .collect::<Vec<&'a str>>()
 }
 
 #[test]
